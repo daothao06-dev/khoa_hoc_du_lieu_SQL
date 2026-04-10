@@ -8,13 +8,13 @@ ADD quantity VARCHAR(15)
 UPDATE sinhvien.bangsanpham 
 SET quantity = '1' 
 WHERE masp IN (6,10);
---- tạo hóa đơn tổng trước vì đây là bảng cha-----
+
 INSERT INTO sinhvien.banghoadon (mahd, makh, tongtien)
 VALUES 
 (1, 1, 80000), 
 (2, 1, 15000), 
 (4, 1, 17000);
---sau đó mới thêm thông tin vào bảng con  ---------
+
 INSERT INTO sinhvien.bangchitiethoadon (mahd, masp, soluong, dongiaban)
 VALUES 
 (1, 8, 2, 30000),  
@@ -117,3 +117,6 @@ WHERE EXISTS (
     FROM sinhvien.bangsanpham p 
     WHERE p.supplier_id = s.supplier_id
 );
+
+
+   
